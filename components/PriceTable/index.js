@@ -1,5 +1,5 @@
 import { Row, Tabs, Button, Space, Table } from "antd";
-import { table1, table1Cols } from "../../lib/tableContent";
+import { table1, table1Cols } from "../../data/tableContent";
 
 const TabPane = Tabs.TabPane;
 const PriceTable = () => {
