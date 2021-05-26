@@ -56,6 +56,9 @@ class MyApp extends App {
           {pageProps.ieBrowser && (
             <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" />
           )}
+          <link rel="stylesheet" href="/react-vis.css" />
+          <link rel="stylesheet" href="/app.css" />
+          <link rel="stylesheet" href="/nprogress.css" />
         </Head>
         <AppProvider>
           <Page>

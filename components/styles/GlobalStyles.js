@@ -15,9 +15,6 @@ const theme = {
 };
 
 const GlobalStyles = createGlobalStyle`
-  @import url('/app.css');
-  @import url('/nprogress.css');
-
   *, *:before, *:after {
     box-sizing: inherit;
   }
