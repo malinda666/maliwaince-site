@@ -1,16 +1,18 @@
 import { createGlobalStyle } from "styled-components";
-import lessToJs from "less-vars-to-js";
-import { objectToCamelCase } from "../../common/helpers";
-import paletteLess from "!!raw-loader!../../assets/antd-custom.less";
 
-const lessVariables = lessToJs(paletteLess, {
-    resolveVariables: true,
-    stripPrefix: true,
-  }),
-  camelCasedVariables = objectToCamelCase(lessVariables),
-  theme = {
-    ...camelCasedVariables,
-  };
+const theme = {
+  primaryColor: "var(--primary-color)",
+  backgroundColor: "var(--primary-bg-color)",
+  darkColor: "var(--primary-color--dark)",
+  errorColor: "#f5222d",
+  warningColor: "#faad14",
+  infoColor: "#1890ff",
+  normalColor: "#d9d9d9",
+  textColor: "var(--text-color)",
+  textColorSecondary: "rgba(0, 0, 0, 0.45)",
+  borderColorBase: "hsv(0, 0, 85%)",
+  borderRadiusBase: "var(--border-radius-base)",
+};
 
 const GlobalStyles = createGlobalStyle`
   @import url('/app.css');
@@ -1797,15 +1799,6 @@ const GlobalStyles = createGlobalStyle`
     box-shadow: 0 0 1px rgba(0,0,0,.1);
     border: 0!important;
     background-clip: padding-box;
-    height:100%;
-    border-radius:1rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .ant-card-bordered > div{
-    // padding : 0.5rem !important;
-    width:100%;
   }
   .card-head-0 .ant-card-head {
     border: 0;
