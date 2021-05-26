@@ -40,7 +40,6 @@ import {
 import NoSSR from "react-no-ssr";
 import PostCard from "../shared/PostCard";
 import StatCard from "../shared/StatCard";
-import WeatherCard from "../shared/WeatherCard";
 import styled from "styled-components";
 import { theme } from "../styles/GlobalStyles";
 
@@ -391,10 +390,6 @@ const Overview = () => {
       </Row>
 
       <Row gutter={16}>
-        <Col md={24} lg={12}>
-          <WeatherCard city="harare" country="zw" days={7} />
-        </Col>
-
         <Col md={24} lg={12}>
           <PostCard
             title="Shrimp and Chorizo Paella"
