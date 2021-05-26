@@ -4,6 +4,8 @@ require("../styles/global.less");
 import Head from "next/head";
 
 import { GlobalStyles } from "../components/styles/GlobalStyles";
+import AppProvider from "../components/shared/AppProvider";
+import Page from "../components/Page";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -27,7 +29,11 @@ function MyApp({ Component, pageProps }) {
           <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" />
         )}
       </Head>
-      <Component {...pageProps} />
+      <AppProvider>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </AppProvider>
     </>
   );
 }

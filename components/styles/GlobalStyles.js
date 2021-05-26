@@ -1,11 +1,23 @@
 import { createGlobalStyle } from "styled-components";
+import lessToJs from "less-vars-to-js";
+import { objectToCamelCase } from "../../common/helpers";
+import paletteLess from "!!raw-loader!../../assets/antd-custom.less";
 
-export const GlobalStyles = createGlobalStyle`
- 
+const lessVariables = lessToJs(paletteLess, {
+    resolveVariables: true,
+    stripPrefix: true,
+  }),
+  camelCasedVariables = objectToCamelCase(lessVariables),
+  theme = {
+    ...camelCasedVariables,
+  };
+
+const GlobalStyles = createGlobalStyle`
+  @import url('/app.css');
+  @import url('/nprogress.css');
+
   *, *:before, *:after {
     box-sizing: inherit;
-    margin:0;
-    padding:0;
   }
 
   #__next > .ant-spin-nested-loading > .ant-spin-blur:after {
@@ -18,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: #fff;
+    background-color: ${theme.backgroundColor};
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -37,6 +49,17 @@ export const GlobalStyles = createGlobalStyle`
   #__next > .ant-spin-nested-loading > .ant-spin-container {
     width: 100%;
     height: 100%;
+  }
+
+  #nprogress .bar {
+    background: ${theme.primaryColor};
+  }
+  #nprogress .peg {
+    box-shadow: 0 0 10px ${theme.primaryColor}, 0 0 5px ${theme.primaryColor};
+  }
+  #nprogress .spinner-icon {
+    border-top-color: ${theme.primaryColor};
+    border-left-color: ${theme.primaryColor};
   }
 
   .weakColor{
@@ -60,13 +83,14 @@ export const GlobalStyles = createGlobalStyle`
   .brand {
     display: flex;
     align-items: center;
+    margin-right: 1rem;
     font-size: 1.25rem;
     white-space: nowrap;
-    margin: 0;
+    color: ${theme.primaryColor};
+    justify-content: center;
   }
   .brand > svg {
-    fill: currentColor;
-    margin-right:0.5rem;
+    fill: ${theme.primaryColor};
   }
   .anticon {
     vertical-align: middle
@@ -146,7 +170,33 @@ export const GlobalStyles = createGlobalStyle`
     overflow: hidden;
   }
 
+  .bg-primary {
+    background-color: ${theme.primaryColor} !important;
+  }
 
+  .bg-normal {
+    background-color: ${theme.normalColor} !important;
+  }
+
+  .bg-success {
+    background-color: ${theme.successColor} !important;
+  }
+
+  .bg-info {
+    background-color: ${theme.infoColor} !important;
+  }
+
+  .bg-warning {
+    background-color: ${theme.warningColor} !important;
+  }
+
+  .bg-error {
+    background-color: ${theme.errorColor} !important;
+  }
+
+  .bg-dark {
+    background-color: ${theme.darkColor} !important;
+  }
 
   .bg-white {
     background-color: #fff !important;
@@ -154,6 +204,26 @@ export const GlobalStyles = createGlobalStyle`
 
   .bg-transparent {
     background-color: transparent !important;
+  }
+
+  .border {
+    border: 1px solid ${theme.borderColorBase} !important;
+  }
+
+  .border-top {
+    border-top: 1px solid ${theme.borderColorBase} !important;
+  }
+
+  .border-right {
+    border-right: 1px solid ${theme.borderColorBase} !important;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid ${theme.borderColorBase} !important;
+  }
+
+  .border-left {
+    border-left: 1px solid ${theme.borderColorBase} !important;
   }
 
   .border-0 {
@@ -176,11 +246,57 @@ export const GlobalStyles = createGlobalStyle`
     border-left: 0 !important;
   }
 
+  .border-primary {
+    border-color: ${theme.primaryColor} !important;
+  }
+
+  .border-normal {
+    border-color: ${theme.normalColor} !important;
+  }
+
+  .border-success {
+    border-color: ${theme.successColor} !important;
+  }
+
+  .border-info {
+    border-color: ${theme.infoColor} !important;
+  }
+
+  .border-warning {
+    border-color: ${theme.warningColor} !important;
+  }
+
+  .border-error {
+    border-color: ${theme.errorColor} !important;
+  }
 
   .border-white {
     border-color: #fff !important;
   }
 
+  .rounded {
+    border-radius: ${theme.borderRadiusBase} !important;
+  }
+
+  .rounded-top {
+    border-top-left-radius: ${theme.borderRadiusBase} !important;
+    border-top-right-radius: ${theme.borderRadiusBase} !important;
+  }
+
+  .rounded-right {
+    border-top-right-radius: ${theme.borderRadiusBase} !important;
+    border-bottom-right-radius: ${theme.borderRadiusBase} !important;
+  }
+
+  .rounded-bottom {
+    border-bottom-right-radius: ${theme.borderRadiusBase} !important;
+    border-bottom-left-radius: ${theme.borderRadiusBase} !important;
+  }
+
+  .rounded-left {
+    border-top-left-radius: ${theme.borderRadiusBase} !important;
+    border-bottom-left-radius: ${theme.borderRadiusBase} !important;
+  }
 
   .rounded-circle {
     border-radius: 50% !important;
@@ -1518,6 +1634,9 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .text-monospace {
+    font-family: ${theme.codeFamily} ;
+  }
 
   .text-justify {
     text-align: justify !important;
@@ -1577,6 +1696,41 @@ export const GlobalStyles = createGlobalStyle`
     color: #fff !important;
   }
 
+  .text-primary {
+    color: ${theme.primaryColor} !important;
+  }
+
+  .text-normal {
+    color: ${theme.normalColor} !important;
+  }
+
+  .text-success {
+    color: ${theme.successColor} !important;
+  }
+
+  .text-info {
+    color: ${theme.infoColor} !important;
+  }
+
+  .text-warning {
+    color: ${theme.warningColor} !important;
+  }
+
+  .text-error {
+    color: ${theme.errorColor} !important;
+  }
+
+  .text-dark {
+    color: ${theme.darkColor} !important;
+  }
+
+  .text-body {
+    color: ${theme.textColor} !important;
+  }
+
+  .text-muted {
+    color: ${theme.textColorSecondary} !important;
+  }
 
   .text-black {
     color: rgba(0, 0, 0, 1) !important;
@@ -1643,11 +1797,22 @@ export const GlobalStyles = createGlobalStyle`
     box-shadow: 0 0 1px rgba(0,0,0,.1);
     border: 0!important;
     background-clip: padding-box;
+    height:100%;
+    border-radius:1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .ant-card-bordered > div{
+    // padding : 0.5rem !important;
+    width:100%;
   }
   .card-head-0 .ant-card-head {
     border: 0;
   }
-  
+  .ant-card-actions {
+    border-radius: 0 0 ${theme.borderRadiusBase} ${theme.borderRadiusBase};
+  }
   .ant-card-head-title {
     font-weight: 700;
   }
@@ -1689,3 +1854,5 @@ export const GlobalStyles = createGlobalStyle`
     stroke-width: 0;
   }
 `;
+
+export { GlobalStyles, theme };

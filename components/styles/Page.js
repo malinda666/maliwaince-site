@@ -20,7 +20,7 @@ const Container = styled.div`
     }
   }
   .workspace {
-    height: ${(props) => `calc(100vh - ${props.theme.layoutHeaderHeight})`};
+    height: ${props => `calc(100vh - ${props.theme.layoutHeaderHeight})`};
     max-height: -webkit-fill-available;
     width: 100%;
     display: flex;
@@ -37,10 +37,10 @@ const Container = styled.div`
 
 const Inner = styled.div`
   margin: 0 auto;
-  padding: 0;
+  padding: 1.5rem;
   position: relative;
   background-color: #f0f0f0;
-  min-height: ${(props) => `calc(100vh - ${props.theme.layoutHeaderHeight})`};
+  min-height: ${props => `calc(100vh - ${props.theme.layoutHeaderHeight})`};
 `;
 
 export { Container, Inner };

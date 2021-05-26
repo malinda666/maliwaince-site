@@ -1,7 +1,16 @@
-import React from "react";
+import Head from "next/head";
+import AdminPage from "../components/AdminPage";
 
 const Admin = () => {
-  return <div>Admin Page</div>;
+  return (
+    <>
+      <Head>
+        <link rel="stylesheet" href="/react-vis.css" />
+        <title>Admin</title>
+      </Head>
+      <AdminPage />
+    </>
+  );
 };
 
 export default Admin;
