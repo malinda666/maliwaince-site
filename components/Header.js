@@ -234,10 +234,10 @@ const MainHeader = ({ router }) => {
         </p>
         <Divider />
         <Button style={{ marginRight: 8 }} shape="round">
-          Sign Up
+          <Link href="/signup">Sign Up</Link>
         </Button>
         <Button type="primary" shape="round">
-          Sign In
+          <Link href="/signin">Sign In</Link>
         </Button>
         <Divider />
       </Drawer>

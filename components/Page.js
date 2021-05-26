@@ -24,7 +24,7 @@ const NonDashboardRoutes = [
 const authRoutes = ["/signin", "/signup", "/forgot", "/lockscreen", "/_error"];
 
 const Page = ({ router, children }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [state] = useAppState();
   const isNotDashboard = NonDashboardRoutes.includes(router.pathname);
   const isAuthRoute = authRoutes.includes(router.pathname);
