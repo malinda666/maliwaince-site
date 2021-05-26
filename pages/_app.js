@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="shortcut icon" href="/images/triangle.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <title>One - React Next.js Ant Design Dashboard</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
