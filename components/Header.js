@@ -94,40 +94,6 @@ const MainHeader = ({ router }) => {
             </Link>
           </Menu.Item>
 
-          {/* 
-          {!state.mobile && (
-            <Menu.Item>
-              <Link href="/apps/messages">
-                <a>Messages</a>
-              </Link>
-            </Menu.Item>
-          )}
-
-          {!state.mobile && (
-            <Menu.Item>
-              <Link href="/apps/social">
-                <a>Social</a>
-              </Link>
-            </Menu.Item>
-          )}
-
-          {!state.mobile && (
-            <Menu.Item>
-              <Link href="/apps/chat">
-                <a>Chat</a>
-              </Link>
-            </Menu.Item>
-          )} */}
-
-          {/* {state.mobile && (
-            <SubMenu title={<CaretDownOutlined style={{ fontSize: '12px' }} />}>
-              <Menu.Item>Calendar</Menu.Item>
-              <Menu.Item>Messages</Menu.Item>
-              <Menu.Item>Social</Menu.Item>
-              <Menu.Item>Chat</Menu.Item>
-            </SubMenu>
-          )} */}
-
           <span className="mr-auto" />
 
           {!state.mobile && (
