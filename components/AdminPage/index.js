@@ -37,6 +37,7 @@ import {
   YAxis,
 } from "react-vis";
 
+import NoSSR from "react-no-ssr";
 import PostCard from "../shared/PostCard";
 import StatCard from "../shared/StatCard";
 import WeatherCard from "../shared/WeatherCard";
@@ -215,18 +216,23 @@ const Overview = () => {
         bodyStyle={{ padding: "1rem" }}
         className="mb-4"
       >
-        <Legend>
-          <DiscreteColorLegend width={180} height={20} items={series} />
-          <MonthPicker placeholder="Select a month" />
-        </Legend>
-        <FlexibleWidthXYPlot xType="ordinal" height={340} xDistance={100}>
-          <VerticalGridLines style={{ strokeWidth: 0.5 }} />
-          <HorizontalGridLines style={{ strokeWidth: 0.5 }} />
-          <XAxis style={{ strokeWidth: 0.5 }} />
-          <YAxis style={{ strokeWidth: 0.5 }} />
-          <VerticalBarSeries color="#007bff" data={series[0].data} />
-          <VerticalBarSeries color="rgb(211, 232, 255)" data={series[1].data} />
-        </FlexibleWidthXYPlot>
+        <NoSSR>
+          <Legend>
+            <DiscreteColorLegend width={180} height={20} items={series} />
+            <MonthPicker placeholder="Select a month" />
+          </Legend>
+          <FlexibleWidthXYPlot xType="ordinal" height={340} xDistance={100}>
+            <VerticalGridLines style={{ strokeWidth: 0.5 }} />
+            <HorizontalGridLines style={{ strokeWidth: 0.5 }} />
+            <XAxis style={{ strokeWidth: 0.5 }} />
+            <YAxis style={{ strokeWidth: 0.5 }} />
+            <VerticalBarSeries color="#007bff" data={series[0].data} />
+            <VerticalBarSeries
+              color="rgb(211, 232, 255)"
+              data={series[1].data}
+            />
+          </FlexibleWidthXYPlot>
+        </NoSSR>
       </Card>
 
       <Row gutter={16}>
